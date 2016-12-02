@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div ng-app="myApp" ng-controller="myCtrl">
+        <input type="text" ng-model="txtfir" placeholder="firstName">
+        <input type="text" ng-model="txtlas" placeholder="lastName">
+        <table>
+            <tr>
+                <td>FirstName</td>
+                <td>LastName</td>
+                <td>Gender</td>
+                <td>Salary</td>
+                <td>Salary</td>
+                <td>Birthday</td>
+            </tr>
+            <tr ng-repeat="item in person | filter:find:val | orderBy:{{ord}}">
+                <td>{{item.firstName}}</td>
+                <td>{{item.lastName}}</td>
+                <td>{{item.gender}}</td>
+                <td>{{item.salary | currency:""}}</td>
+                <td>{{item.salary | currency:"$"}}</td>
+                <td>{{item.birthday}}</td>
+            </tr>
+        </table>
+    </div>
+</body>
+<script src="js/jquery-2.1.1.js"></script>
+<script src="js/angular.js"></script>
+<script src="js/script.js"></script>
+</html>

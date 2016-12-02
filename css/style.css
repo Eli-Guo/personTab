@@ -1,0 +1,11 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+table{
+    border-collapse: collapse;
+}
+td{
+    border:1px solid #ccc;
+    padding:5px;
+}
