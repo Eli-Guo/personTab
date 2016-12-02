@@ -14,14 +14,14 @@
         <input type="text" ng-model="txtlas" placeholder="lastName">
         <table>
             <tr>
-                <td>FirstName</td>
-                <td>LastName</td>
-                <td>Gender</td>
-                <td>Salary</td>
-                <td>Salary</td>
-                <td>Birthday</td>
+                <td ng-class="active" ng-click="event('firstName')">FirstName</td>
+                <td ng-class="active" ng-click="event('lastName')">LastName</td>
+                <td ng-class="active" >Gender</td>
+                <td ng-class="active" ng-click="event('salary')">Salary</td>
+                <td ng-class="active" ng-click="event('salary')">Salary</td>
+                <td ng-class="active" ng-click="event('birthday')">Birthday</td>
             </tr>
-            <tr ng-repeat="item in person | filter:find:val | orderBy:{{ord}}">
+            <tr ng-repeat="item in person | filter:find:val | orderBy:ods:dsc">
                 <td>{{item.firstName}}</td>
                 <td>{{item.lastName}}</td>
                 <td>{{item.gender}}</td>
