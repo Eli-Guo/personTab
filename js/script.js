@@ -57,20 +57,21 @@ app.controller('myCtrl',["$scope",function ($scope) {
         }
     });
     $scope.find   = function (val) {
-        if ($scope.txtfir != ""){
+
+        if($scope.txtfir != "" && $scope.txtlas != ""){
+            if(val.firstName.toLowerCase().indexOf($scope.txtfir.toLowerCase()) != -1 && val.lastName.toLowerCase().indexOf($scope.txtlas.toLowerCase()) != -1){
+                return true
+            }else {
+                return false
+            }
+        }else if ($scope.txtfir != "" && $scope.txtlas == ""){
             if(val.firstName.toLowerCase().indexOf($scope.txtfir.toLowerCase()) != -1){
                 return true
             }else {
                 return false
             }
-        }else if($scope.txtlas != ""){
+        }else if($scope.txtlas != "" && $scope.txtfir == ""){
             if(val.lastName.toLowerCase().indexOf($scope.txtlas.toLowerCase()) != -1){
-                return true
-            }else {
-                return false
-            }
-        }else if($scope.txtfir != "" && $scope.txtlas != ""){
-            if(val.firstName.toLowerCase().indexOf($scope.txtfir.toLowerCase()) != -1 && val.lastName.toLowerCase().indexOf($scope.txtlas.toLowerCase()) != -1){
                 return true
             }else {
                 return false
