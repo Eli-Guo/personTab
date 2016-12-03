@@ -14,12 +14,12 @@
         <input type="text" ng-model="txtlas" placeholder="lastName">
         <table>
             <tr>
-                <td ng-class="active" ng-click="event('firstName')">FirstName</td>
-                <td ng-class="active" ng-click="event('lastName')">LastName</td>
-                <td ng-class="active" >Gender</td>
-                <td ng-class="active" ng-click="event('salary')">Salary</td>
-                <td ng-class="active" ng-click="event('salary')">Salary</td>
-                <td ng-class="active" ng-click="event('birthday')">Birthday</td>
+                <td ng-class="{'active':false}" ng-click="event('firstName',$event)">FirstName <span>↑</span></td>
+                <td ng-class="{'active':false}" ng-click="event('lastName',$event)">LastName<span>↑</span></td>
+                <td ng-class="{'active':false}" >Gender</td>
+                <td ng-class="{'active':false}" ng-click="event('salary',$event)">Salary<span>↑</span></td>
+                <td ng-class="{'active':false}" ng-click="event('salary',$event)">Salary<span>↑</span></td>
+                <td ng-class="{'active':false}" ng-click="event('birthday',$event)">Birthday<span>↑</span></td>
             </tr>
             <tr ng-repeat="item in person | filter:find:val | orderBy:ods:dsc">
                 <td>{{item.firstName}}</td>

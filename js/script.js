@@ -37,10 +37,25 @@ app.controller('myCtrl',["$scope",function ($scope) {
     $scope.txtlas = "";
     $scope.ods    = "";
     $scope.dsc    = 0;
-    $scope.event  = function (et) {
+    $scope.event  = function (et,ev) {
         this.ods = et;
         this.dsc = !this.dsc;
+        var obj  = ev.target;
+        $(obj).attr('ng-class',"{'active':true}").siblings().attr('ng-class',"{'active':false}");
+        if($(obj).hasClass("up-arrow")){
+            $(obj).find("span").html("↑");
+            $(obj).removeClass("up-arrow");
+        }else {
+            $(obj).find("span").html("↓");
+            $(obj).addClass("up-arrow");
+        }
     };
+    $("table").on("click","td",function () {
+        if($(this).attr('ng-class') == "{'active':true}"){
+            $(this).find("span").show();
+            $(this).siblings().find("span").hide();
+        }
+    });
     $scope.find   = function (val) {
         if ($scope.txtfir != ""){
             if(val.firstName.toLowerCase().indexOf($scope.txtfir.toLowerCase()) != -1){
